@@ -1,0 +1,11 @@
+client:
+  kind: leader
+  proxystore_endpoint: 0a432603-ff70-49f4-bfcd-cf356b58252b # flox-sc
+  globus_compute_endpoint: a4cadb2c-68fb-4197-8603-3d04f3b33744
+  children: [ "hawfinch" ]
+
+hawfinch:
+  kind: worker
+  proxystore_endpoint: 20fa315c-59de-4393-8faa-2158d07a7299
+  globus_compute_endpoint: db06abc0-68e4-4b9b-a397-cfc50212f5fc
+  children: [ ]
