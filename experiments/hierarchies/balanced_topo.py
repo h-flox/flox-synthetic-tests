@@ -2,6 +2,27 @@ import math
 import typing as t
 
 import networkx as nx
+from flox.flock import NodeKind
+
+
+def convert_to_flock(tree: nx.DiGraph):
+    assert nx.is_tree(tree)
+
+    for idx in tree.nodes():
+        parents = list(tree.predecessors(idx))
+        children = list(tree.successors(idx))
+
+        if len(parents) == 0:
+            tree.nodes[idx]["kind"] = NodeKind.LEADER
+        elif len(children) == 0:
+            tree.nodes[idx]["kind"] = NodeKind.WORKER
+        else:
+            tree.nodes[idx]["kind"] = NodeKind.AGGREGATOR
+
+        tree.nodes[idx]["globus_compute_endpoint"] = None
+        tree.nodes[idx]["proxystore_endpoint"] = None
+
+    return tree
 
 
 def num_leaves(graph: nx.DiGraph) -> int:
@@ -19,7 +40,6 @@ def num_leaves(graph: nx.DiGraph) -> int:
 def balanced_tree_with_fixed_leaves(
     leaves: int,
     height: int,
-    create_using=nx.DiGraph,
     rounding: t.Literal["round", "floor", "ceil"] = "round",
 ) -> nx.DiGraph:
     r"""
@@ -39,8 +59,6 @@ def balanced_tree_with_fixed_leaves(
     Args:
         leaves (int): Approximate number of leaves in the resulting tree (see note).
         height (int): Height of the tree.
-        create_using: Is used to specify the type of network constructed.
-            Defaults to `nx.DiGraph`.
         rounding (t.Literal): How to round the branching factor.
 
     Returns:
@@ -60,7 +78,9 @@ def balanced_tree_with_fixed_leaves(
         case _:
             raise ValueError(f"Illegal value for arg `rounding`.")
 
-    return nx.balanced_tree(r, height, create_using)
+    tree = nx.balanced_tree(r, height, create_using=nx.DiGraph)
+    tree = convert_to_flock(tree)
+    return tree
 
 
 if __name__ == "__main__":
@@ -69,7 +89,7 @@ if __name__ == "__main__":
     leaves = 10000
     x, y = [], []
     for h in range(1, 10 + 1):
-        tree = balanced_tree_with_fixed_leaves(1000, 4)
+        _tree = balanced_tree_with_fixed_leaves(1000, 4)
         bf = leaves ** (1 / h)
         x.append(h)
         y.append(bf)

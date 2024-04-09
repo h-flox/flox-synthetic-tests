@@ -1,0 +1,83 @@
+Coordinator:
+  kind: leader
+  children: [ ChiLogin, Hawfinch ]
+  globus_compute_endpoint: ...
+  proxystore_endpoint: ...
+
+Hawfinch:
+  kind: aggregator
+  children: [ Kestrel, Ryerson ]
+  globus_compute_endpoint: 71ac3587-e3bf-44f9-8eda-953562c38d09 # db06abc0-68e4-4b9b-a397-cfc50212f5fc
+  proxystore_endpoint: 20fa315c-59de-4393-8faa-2158d07a7299
+
+Kestrel:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: f8a9ffea-3256-4baf-b500-d2098f8be678
+  proxystore_endpoint: 2417b36f-f08c-42aa-a3b0-425839e97e89
+
+Ryerson:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: e8eb7a55-f5c0-4d57-868c-7f4ff1098973
+  proxystore_endpoint: 78f381f0-6e30-4aa0-8c60-bedf72edeaf8
+
+ChiLogin:
+  kind: aggregator
+  children: [ Rpi1, Rpi2, Rpi3, Rpi4, Rpi5, Rpi6, Rpi7, Rpi8, Rpi9 ]
+  globus_compute_endpoint: 294cf75a-a161-4fac-907a-61642822bc90
+  proxystore_endpoint: 8c131b69-5e32-400f-8382-425b48e14e46
+
+Rpi1:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 8528089e-55f5-40a9-8c5d-b2fd7e4577cc
+  proxystore_endpoint: 701829bf-2fdd-4fd6-8366-67cbbd8cbe2b
+
+Rpi2:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 96109f15-3a30-4d71-bf2f-281ef20a5e70
+  proxystore_endpoint: 526152c8-5284-4b8c-b1b5-c2148e0ba206
+
+Rpi3:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 6ca31aa3-edf6-4e40-bce5-05474e2bdf8a
+  proxystore_endpoint: 75491d38-6300-444e-aee4-d25e92597486
+
+Rpi4:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 6f26083d-2836-4a53-987b-98ee9955267d
+  proxystore_endpoint: 1aca99fe-ad7d-4e29-9a25-ea588e90bc87
+
+Rpi5:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 1f51c9eb-a78b-49f5-85bd-afa32b17fb11
+  proxystore_endpoint: f89f225a-ee5f-4e5e-a7ef-fc8ef2e74571
+
+Rpi6:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 5365efce-00d1-4146-9774-0bf7e61a6e1f
+  proxystore_endpoint: 5b763f1a-4473-4591-9f4c-e1b87fa65eef
+
+Rpi7:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 743bbfa5-f7c7-46a9-96b3-abaced6457bb
+  proxystore_endpoint: 33154f4e-d6ee-4cf3-9f74-3ba4c72e9e31
+
+Rpi8:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 92df1ac7-a2e0-41f0-8530-cbc0dd2f9d8c
+  proxystore_endpoint: df97906a-e54c-48ac-9435-d04ec63a62d6
+
+Rpi9:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: df72ec8d-1af7-417a-8214-2f8d1c9cf4cc
+  proxystore_endpoint: 02b52dea-36ce-49ba-93ac-9dd1110518e9

@@ -33,7 +33,7 @@ class SmallConvModel(FloxModule):
     def forward(self, x):
         x = self.pool(F.relu(self.conv1(x)))
         x = self.pool(F.relu(self.conv2(x)))
-        x = torch.flatten(x, 1)  # flatten all dimensions except batch
+        x = torch.flatten(x, 1)
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = self.fc3(x)
@@ -41,7 +41,6 @@ class SmallConvModel(FloxModule):
 
     def training_step(self, batch, batch_idx):
         inputs, targets = batch
-        # print(f"{inputs.shape=}")
         inputs = inputs.to(DEVICE)
         targets = targets.to(DEVICE)
         preds = self(inputs)
@@ -97,8 +96,6 @@ def main(args: argparse.Namespace):
             launcher_cfg={"max_workers": 10},
         )
         histories.append(his)
-        # print("finished!")
-        # exit(0)
         break
 
 

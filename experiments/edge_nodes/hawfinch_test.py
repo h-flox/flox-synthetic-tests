@@ -1,3 +1,4 @@
+import logging
 import os
 from time import perf_counter
 
@@ -16,6 +17,10 @@ from proxystore.proxy import Proxy
 from proxystore.store import Store
 from torchvision import transforms
 from torchvision.datasets import FashionMNIST
+
+logging.basicConfig(
+    format="(%(levelname)s  - %(asctime)s) ❯ %(message)s", level=logging.INFO
+)
 
 
 class SmallConvModel(FloxModule):
@@ -85,16 +90,17 @@ def main():
         ),
     )
     fed_data = federated_split(data, flock, 10, 3.0, 1.0)
-    # model.__module__ = "__main__"
+    logging.info("Starting federated fitting.")
     module, history = federated_fit(
         flock,
-        SmallConvModel(),
-        fed_data,
+        None,  # SmallConvModel(),
+        None,  # fed_data,
         num_global_rounds=1,
-        strategy="fedavg",
+        strategy="fedsgd",
         kind="sync-v2",
         launcher_kind="globus-compute",
         debug_mode=True,
+        logging=True,
     )
     print("Finished learning!")
 

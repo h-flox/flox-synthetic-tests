@@ -1,0 +1,66 @@
+Coordinator:
+  kind: leader
+  children: [ agg1, agg2 ]
+  globus_compute_endpoint: 6bf364a4-2eb0-45bf-a00d-0723ad3f2bd8
+  proxystore_endpoint: 72ad35cd-100a-4e52-ad21-703af6e2589b
+
+agg1:
+  kind: aggregator
+  children: [ worker1.1, worker1.2, worker1.3, worker1.4 ]
+  globus_compute_endpoint: cc774e21-e6b7-4a68-8962-6b38421559c1
+  proxystore_endpoint: e3b6df07-503a-4c27-8e22-c5628a05f81b
+
+worker1.1:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 84139d66-eee5-4a90-9d21-9ffecfca9276
+  proxystore_endpoint: 68cf32f2-5219-4370-84bf-67e64e2c668b
+
+worker1.2:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 8541d200-d2c6-486f-8d08-994f0219d98d
+  proxystore_endpoint: 88441a36-cec7-4397-ad9e-d42350cabae6
+
+worker1.3:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 61caccc5-ad28-4097-850d-64d4a2ea717c
+  proxystore_endpoint: 65c7ebf7-bd77-484a-af65-dc8ea5b5fb98
+
+worker1.4:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: d684ee65-c6b7-43fb-9dfd-8661e99f8968
+  proxystore_endpoint: e3956de9-3c84-4f4a-a1b0-4c46068fbce7
+
+
+agg2:
+  kind: aggregator
+  children: [ worker2.1, worker2.2, worker2.3, worker2.4 ]
+  globus_compute_endpoint: 897ea031-ea62-42be-9715-b47e70d2a6c2
+  proxystore_endpoint: 3b9867f1-2192-4602-b5e5-87486735ef28
+
+worker2.1:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: f4c493d5-57a4-4d71-89f9-77bad987b64e
+  proxystore_endpoint: 4ff8a35e-2434-4a6a-8eb0-aa3b6d628e04
+
+worker2.2:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: eb4a9a88-0bfc-4807-a470-68ea2a1fad17
+  proxystore_endpoint: 10bd9f24-9e10-4b9c-a6a9-effeb6f042ef
+
+worker2.3:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 5dab699d-5997-4a49-8c70-9ecee5810b30
+  proxystore_endpoint: 4ac532e5-96c1-4af5-944f-92cdf6da6c64
+
+worker2.4:
+  kind: worker
+  children: [ ]
+  globus_compute_endpoint: 28f66d41-9451-471a-be98-621c70f74260
+  proxystore_endpoint: e283a96c-11b1-45d4-905c-1aa2ba16cace
