@@ -53,8 +53,6 @@ class SmallConvModel(FloxModule):
 def main():
     flock = Flock.from_yaml("edge_topo.yaml")
 
-    # TODO: Convert this into a logical data class that just has the subset and the logic to load
-    #       the data on the device.
     data = FashionMNIST(
         root=os.environ["TORCH_DATASETS"],
         train=True,
@@ -65,14 +63,14 @@ def main():
     )
     fed_data = federated_split(data, flock, 10, 3.0, 1.0)
     logging.info("Starting federated fitting.")
-    module, history = federated_fit(
+    _, history = federated_fit(
         flock,
         SmallConvModel(),
         fed_data,
         num_global_rounds=1,
         strategy="fedavg",
         kind="sync-v2",
-        # launcher_kind="globus-compute", # NOTE: Use this line to use Globus Compute (comment out next 2 lines)
+        #       launcher_kind="globus-compute", # NOTE: Use this line to use Globus Compute (comment out next 2 lines)
         launcher_kind="process",  # NOTE: Use this line (and next line) to run locally for simpler debugging.
         launcher_cfg={"max_workers": 4},
         debug_mode=False,

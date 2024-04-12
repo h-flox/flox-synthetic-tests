@@ -81,21 +81,3 @@ def balanced_tree_with_fixed_leaves(
     tree = nx.balanced_tree(r, height, create_using=nx.DiGraph)
     tree = convert_to_flock(tree)
     return tree
-
-
-if __name__ == "__main__":
-    import matplotlib.pyplot as plt
-
-    leaves = 10000
-    x, y = [], []
-    for h in range(1, 10 + 1):
-        _tree = balanced_tree_with_fixed_leaves(1000, 4)
-        bf = leaves ** (1 / h)
-        x.append(h)
-        y.append(bf)
-
-    plt.plot(x, y)
-    plt.xlabel("Height")
-    plt.ylabel("Branching Factor")
-    plt.yscale("log")
-    plt.show()
