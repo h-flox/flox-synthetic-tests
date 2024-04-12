@@ -145,7 +145,6 @@ if __name__ == "__main__":
         default="out",
         help="The directory where the results are stored.",
     )
-    args.add_argument("--model", "-m", type=int, default=1)
     args.add_argument("--exec_workers", "-e", type=int, default=12)
     args.add_argument("--labels_alpha", "-l", type=float, default=1.0)
     args.add_argument("--samples_alpha", "-s", type=float, default=10.0)

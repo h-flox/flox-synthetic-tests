@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-import seaborn as sns
 import numpy as np
 
 
@@ -24,10 +22,5 @@ if __name__ == "__main__":
 	print(out_template.format(
 		"async", async_idle.mean(), async_idle.std()
 	))
-	
-	sns.ecdfplot(async_idle, label="async")
-	sns.ecdfplot(sync_idle, label="sync").set(xscale="log")
-	plt.legend()
-	plt.show()
 
 	
