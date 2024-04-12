@@ -21,14 +21,14 @@ This will download the dataset using `torchvision.datasets`.
 In the `experiments/` directory, we provide the code for executing and plotting the results for each of the synthetic tests from the paper.
 
 
-### Hierarchical Topology Test (Artifact 2)
+### Artifact 2: Hierarchical Topology Test
 ...
 
-### Asynchronous Comparison Test (Artifact 3)
+### Artifact 3: Asynchronous Comparison Test
 ...
 
-### Remote Execution Test (Artifact 4)
+### Artifact 4: Remote Execution Test
 ...
 
 ## Other
-If you are looking for **Scaling Tests (Artifact 1)** click [here](https://github.com/h-flox/flox-scaling-tests).
+If you are looking for **Artifact 1: Scaling Tests** click [here](https://github.com/h-flox/flox-scaling-tests).
