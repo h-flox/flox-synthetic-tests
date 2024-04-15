@@ -3,7 +3,8 @@ import numpy as np
 
 if __name__ == "__main__":
 	"""
-	These were calculated from the `Async Comparison.ipynb` notebook.
+	These were calculated from the `Async Comparison.ipynb` notebook
+    using the results provided in `a3_async_test/out/`.
 	"""
 	async_idle = np.array([
 		0.0362982, 0.0892326, 0.0775805, 0.0541913, 0.0587702, 0.0558669, 
